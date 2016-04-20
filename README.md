@@ -1,6 +1,6 @@
 # github-battle
 
-1-react-with-webpack-starter
+##1-react-with-webpack-starter
 Did an npm init and installed my dependencies:
 
 ```
@@ -9,7 +9,7 @@ npm install --save react react-dom
 npm install --save-dev html-webpack-plugin webpack webpack-dev-server babel-{core,loader} babel-preset-react
 ```
 
-The configured webpack:
+Then configured webpack:
 
 ```
 webpack.config.js
@@ -53,3 +53,10 @@ module.exports = {
 ```
 
 I also chucked the bootstrap CDN into my dev index.html : ```<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">```
+
+
+##2-props-and-nesting-components
+
+You should treat props being passed to children as immutable. 
+
+
