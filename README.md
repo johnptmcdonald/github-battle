@@ -60,3 +60,41 @@ I also chucked the bootstrap CDN into my dev index.html : ```<link rel="styleshe
 You should treat props being passed to children as immutable. 
 
 
+##3-react-router
+
+This is pretty cool: https://github.com/reactjs/react-router-tutorial
+
+First you import a bunch of route stuff in your routes file:
+```
+var ReactRouter = require('react-router')
+var Router = ReactRouter.Router
+var Route = ReactRouter.Route
+var Link = ReactRouter.Link
+var IndexRouter = ReactRouter.IndexRoute
+var browserHistory = ReactRouter.browserHistory // or hashHistory, because browserHistory requires some server side setup as explained here: https://github.com/reactjs/react-router-tutorial/tree/master/lessons/10-clean-urls
+```
+
+The routes are nested like this:
+
+```
+var routes = (
+	<Router history={browserHistory}>
+		<Route path='/' component={Main}>
+			<Route path='/home' component={Home}></Route>
+		</Route>
+	</Router>
+)
+```
+The component is active whenever the url has its path. In this case, we render the Home element simply by writing ```{this.props.children}``` in the Main component. This renders the *active* children of Main. 
+
+Actually, we're going to always render Home, if no other paths are active (it will be like the index within Main - Main will ALWAYS be rendered, home will be rendered if no other children of Main are rendered [we will be adding lots of children soon]):
+
+```
+var routes = (
+	<Router history={browserHistory}>
+		<Route path='/' component={Main}>
+			<Indexroute component={Home}></Route>
+		</Route>
+	</Router>
+)
+
